@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudurdum.com</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="overlay">
+        <h1>OLAY BURDA DİYOSUN HA </h1>
+    </div>
+</header>
+
+<section id="video-detail" class="video-detail-container">
+    <div id="video-player-container">
+        <video id="video-player" controls></video>
+    </div>
+    <div id="video-info" class="overlay">
+        <h2 id="video-title"></h2>
+        <p id="video-description"></p>
+        <button id="back-button">Video Listesine Geri Dön</button>
+    </div>
+</section>
+
+<footer>
+    <div class="overlay">
+        <p>&copy; 2023 Video Sitesi</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const videoPlayer = document.getElementById("video-player");
+        const videoTitle = document.getElementById("video-title");
+        const videoDescription = document.getElementById("video-description");
+        const backButton = document.getElementById("back-button");
+
+        // URL'den video dosya adını çek
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoUrl = urlParams.get('src');
+        const videoTitleParam = urlParams.get('title');
+        const videoDescriptionParam = urlParams.get('description');
+
+        // Video player, başlık ve açıklama güncelleme
+        if (videoUrl) {
+            videoPlayer.src = decodeURIComponent(videoUrl);
+            videoTitle.textContent = videoTitleParam || "Video Adı";
+            videoDescription.textContent = videoDescriptionParam || "Açıklama bulunmuyor.";
+        } else {
+            // Video URL'si belirtilmemişse veya geçersizse bir hata mesajı gösterilebilir
+            videoTitle.textContent = "Geçersiz Video";
+            videoDescription.textContent = "";
+        }
+
+        // Video listesine geri dönme butonu
+        backButton.addEventListener("click", function() {
+            window.location.href = "index.html"; // Ana sayfanın dosya adını buraya ekleyin
+        });
+    });
+</script>
+</body>
+</html>

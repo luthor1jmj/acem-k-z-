@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudurdum.com</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="overlay">
+        <h1>Kaliteli güncel videolar</h1>
+        <div class="search-category">
+            <input type="text" id="searchInput" placeholder="Video Ara...">
+            <select id="categorySelect">
+                <option value="all">Tümü</option>
+                <option value="category1">sakso</option>
+                <option value="category2">sikiş</option>
+                <!-- Dilediğiniz kadar kategori ekleyebilirsiniz -->
+            </select>
+        </div>
+    </div>
+</header>
+
+<section id="videos" class="video-grid">
+    <!-- Video Listesi Buraya Eklenecek -->
+</section>
+
+<div id="pagination" class="overlay">
+    <button id="prevPage" class="pagination-button">Önceki Sayfa</button>
+    <span id="currentPage" class="pagination-current-page">1</span>
+    <select id="pageSelect"></select>
+    <button id="nextPage" class="pagination-button">Sonraki Sayfa</button>
+</div>
+
+<footer>
+    <div class="overlay">
+        <p>&copy; 2023 Kudurdum.com</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
